@@ -1,0 +1,50 @@
+
+
+<div class="container-fluid">
+
+	<div class="container-fluid xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Specialties</div>
+			<div class="panel-body">
+
+
+
+				<table id="vets" class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let specialty of specialties; let element_id=index">
+							<td class="text-primary">{{ specialty.id }}</td>
+							<td class="text-info"><input [readonly]="!is_edit"
+								type="text" class="form-control" [id]=element_id
+								[(ngModel)]="specialty.name" name="spec_name" /></td>
+							<td>
+								<button class="btn btn-primary"
+									(click)="editSpecialty(specialty)">{{current_state}}</button>
+							</td>
+							<td>		
+								<button class="btn btn-danger"
+									(click)="deleteSpecialty(specialty)">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div *ngIf="is_insert">
+					<app-specialty-add>...</app-specialty-add>
+				</div>
+				<div>
+					<button class="btn btn-primary" (click)="gotoHome()">Home</button>
+					<button class="btn btn-success" (click)="addSpecialty()">
+						Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

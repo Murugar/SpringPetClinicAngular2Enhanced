@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			  <h1 class="panel-title">
+			   Veterinarians
+			  </h1>
+			</div>
+			<div class="panel-body">
+
+
+
+				<table id="vets" class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Specialties</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let vet of vets">
+							<td class="text-info">{{ vet.firstName }} {{ vet.lastName }}
+							</td>
+							<td class="text-warning">
+								<div *ngFor="let spec of vet.specialties">{{ spec.name }}
+								</div>
+							</td>
+							<td>
+								<button class="btn btn-info" (click)="editVet(vet)">Edit
+									Vet</button>
+							</td>
+							<td>		
+								<button class="btn btn-danger" (click)="deleteVet(vet)">Delete
+									Vet</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<button class="btn btn-primary" (click)="gotoHome()">Home</button>
+					<button class="btn btn-success" (click)="addVet()">Add Vet</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>

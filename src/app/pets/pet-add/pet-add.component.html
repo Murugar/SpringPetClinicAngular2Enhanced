@@ -1,0 +1,79 @@
+
+<script type="text/javascript">
+
+
+$('.birthDate').datepicker({
+    format: 'yyyy/mm/dd'
+ });
+</script>
+
+<div class="container-fluid">
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Add Pet</div>
+			<div class="panel-body">
+
+				<br />
+
+				<form class="form-horizontal" (ngSubmit)="onSubmit(petForm.value)"
+					#petForm="ngForm">
+					<div class="form-group" hidden="true">
+						<input type="text" hidden="true" class="form-control" id="id"
+							[(ngModel)]="pet.id" name="id" /> <input type="text"
+							hidden="true" class="form-control" id="owner"
+							[(ngModel)]="pet.owner" name="owner" />
+					</div>
+					<div class="form-group">
+						<label for="owner" class="col-sm-3 control-label">Owner</label>
+						<div class="col-sm-6">
+							<input id="owner_name" name="owner_name" class="form-control"
+								type="text"
+								value="{{ current_owner.firstName }} {{ current_owner.lastName }}"
+								readonly />
+						</div>
+					</div>
+					<br />
+					<div class="form-group ">
+						<label for="name" class="col-sm-3 control-label">Name</label>
+						<div class="col-sm-6">
+							<input id="name" name="name" class="form-control" type="text"
+								[(ngModel)]="pet.name" />
+						</div>
+					</div>
+					<div class="form-group ">
+						<label for="birthDate" class="col-sm-3 control-label">Birth
+							Date</label>
+						<div class="col-sm-6">
+							<input id="birthDate" name="birthDate"
+								class="datepicker date form-control glyphicon glyphicon-calendar"
+								type="date" [(ngModel)]="pet.birthDate"
+								data-provide="datepicker" data-date-format="yyyy/mm/dd" />
+
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="form-group ">
+							<label for="type" class="col-sm-3 control-label">Type </label>
+							<div class="col-sm-6">
+								<select id="type" name="type" class="form-control"
+									[(ngModel)]="pet.type">
+									<option *ngFor="let type of pet_types" [ngValue]="type">{{
+										type.name }}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-5 col-sm-7">
+							<br />
+							<button class="btn btn-primary" type="button"
+								(click)="gotoOwnerDetail()">< Back</button>
+							<button class="btn btn-success" type="submit">Save Pet</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

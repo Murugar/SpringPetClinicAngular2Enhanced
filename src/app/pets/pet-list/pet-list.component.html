@@ -1,0 +1,69 @@
+
+<table [hidden]="delete_success" class="table borderless">
+	<tr>
+		<td>
+
+			<div class="panel panel-success">
+				<div class="panel-heading">Pet Line Item Info</div>
+				<div class="panel-body">
+
+					<div class="row">
+
+
+						<div class="col-md-5">
+
+							<div class="panel panel-primary">
+								<div class="panel-heading">Pet Details</div>
+								<div class="panel-body">
+
+									<table class="table">
+										<tr>
+											<th class="text-danger">Name</th>
+											<td class="text-primary"><b>{{pet.name}}</b></td>
+										</tr>
+										<tr>
+											<th class="text-danger">BirthDate</th>
+											<td class="text-primary">{{pet.birthDate}}</td>
+										</tr>
+										<tr>
+											<th class="text-danger">Type</th>
+											<td class="text-primary">{{pet.type.name}}</td>
+										</tr>
+									</table>
+									<br />
+									<button class="btn btn-primary" (click)="editPet(pet)">Edit
+										Pet</button>
+									<button class="btn btn-danger" (click)="deletePet(pet)">Delete
+										Pet</button>
+									<button class="btn btn-success" (click)="addVisit(pet)">Add
+										Visit</button>
+
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-1"></div>
+
+						<div class="col-md-5">
+							<div class="panel panel-info">
+								<div class="panel-heading">Visit Details</div>
+								<div class="panel-body">
+									<app-visit-list [visits]="pet.visits"></app-visit-list>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-1"></div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+		</td>
+
+	</tr>
+
+</table>

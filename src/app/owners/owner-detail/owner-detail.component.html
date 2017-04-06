@@ -1,0 +1,67 @@
+<div class="container-fluid">
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Owner Information</div>
+			<div class="panel-body">
+
+
+
+				<div class="row">
+					<div class="col-md-5">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Owner Details</div>
+							<div class="panel-body">
+
+								<table class="table borderless">
+									<tr>
+										<th class="text-danger">Name</th>
+										<td class="text-primary"><b>{{owner.firstName}}
+												{{owner.lastName}}</b></td>
+									</tr>
+									<tr>
+										<th class="text-danger">Address</th>
+										<td class="text-primary">{{owner.address}}</td>
+									</tr>
+									<tr>
+										<th class="text-danger">City</th>
+										<td class="text-primary">{{owner.city}}</td>
+									</tr>
+									<tr>
+										<th class="text-danger">Telephone</th>
+										<td class="text-primary">{{owner.telephone}}</td>
+									</tr>
+								</table>
+
+								<button class="btn btn-primary" (click)="gotoOwnersList()"><
+									Back</button>
+								<button class="btn btn-success" (click)="editOwner()">Edit
+									Owner</button>
+								<button class="btn btn-warning" (click)="addPet(owner)">Add
+									New Pet</button>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel panel-danger">
+					<div class="panel-heading">Pets and Visits</div>
+					<div class="panel-body">
+
+						<table class="table">
+							<tr>
+								<app-pet-list *ngFor="let pet of owner.pets" [pet]="pet"></app-pet-list>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,57 @@
+
+<div class="container-fluid">
+
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+
+			<div class="panel-heading">Owners</div>
+
+			<div class="panel-body">
+
+
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Full Name</th>
+								<th>Full Address</th>
+								<th>Full City</th>
+								<th>Telephone</th>
+								<th>Pets</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<!-- <a  routerLink="/owners/{{owner.id}}" routerLinkActive="active" -->
+							<tr *ngFor="let owner of owners">
+								<td class="ownerFullName"><a
+									routerLink="/owners/{{owner.id}}" routerLinkActive="active"
+									(click)="onSelect(owner)">{{owner.firstName}}
+										{{owner.lastName}}</a></td>
+								<td class="text-primary">{{owner.address}}</td>
+								<td class="text-warning">{{owner.city}}</td>
+								<td class="text-danger">{{owner.telephone}}</td>
+								<td class="text-danger">
+									<tr class="text-info" *ngFor="let pet of owner.pets">
+								       <td>{{pet.name}}</td>
+							      </tr>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<button class="btn btn-success" (click)="addOwner()">Add
+							New Owner</button>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="panel-footer text-center text-danger">iQmSoft</div>
+
+		</div>
+	</div>
+
+</div>

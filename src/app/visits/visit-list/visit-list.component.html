@@ -1,0 +1,26 @@
+
+<table [hidden]="no_visits" class="table table-bordered">
+  <thead>
+  <tr class="primary">
+    <th>Visit Date</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let visit of visits">
+    <td>{{visit.date}}</td>
+    <td>{{visit.description}}</td>
+    <td>
+      <button class="btn btn-primary" (click)="editVisit(visit)">Edit</button>
+    </td>
+    <td>  
+      <button class="btn btn-danger" (click)="deleteVisit(visit)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+
+
+
+

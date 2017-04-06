@@ -1,0 +1,60 @@
+
+
+
+<div class="container-fluid">
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Edit Vet</div>
+			<div class="panel-body">
+
+				<br />
+
+				<form class="form-horizontal" (ngSubmit)="onSubmit(vetForm.value)"
+					#vetForm="ngForm">
+					
+					<div class="form-group" hidden="true">
+						<input type="text" hidden="true" class="form-control" id="id"
+							[(ngModel)]="vet.id" name="id" /> 
+					</div>
+					<div class="form-group ">
+						<label for="firstName" class="col-sm-3 control-label">First Name</label>
+						<div class="col-sm-6">
+							<input id="firstName" name="firstName" class="form-control" type="text"
+								[(ngModel)]="vet.firstName" #firstName="ngModel"/>
+						</div>
+					</div>
+					<div class="form-group ">
+						<label for="lastName" class="col-sm-3 control-label">Last Name</label>
+						<div class="col-sm-6">
+							<input id="lastName" name="lastName" class="form-control" type="text"
+								[(ngModel)]="vet.lastName" #lastName="ngModel"/>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="form-group ">
+							<label for="specialties" class="col-sm-3 control-label">Specialty</label>
+							<div  class="col-sm-6">
+								<select  id="specialties" name="specialties" class="multiselect form-control"
+									[(ngModel)]="vet.specialties" multiple="multiple">
+									
+									<option *ngFor="let type1 of vet.specialties"
+									     	[ngValue]="type1">{{ type1.name }}</option>
+									
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-5 col-sm-7">
+							<br />
+							<button class="btn btn-primary" type="button"
+								(click)="gotoVetsList()">Back</button>
+							<button class="btn btn-success" type="submit">Save Vet</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

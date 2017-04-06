@@ -1,0 +1,83 @@
+<script type="text/javascript">
+
+$('#birthDate').daterangepicker({
+             
+  });
+  
+
+</script>
+
+<div class="container-fluid">
+	<div class="container xd-container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Pet</div>
+			<div class="panel-body">
+
+
+				<form class="form-horizontal" (ngSubmit)="onSubmit(petForm.value)"
+					#petForm="ngForm">
+					<div class="form-group" hidden="true">
+						<input type="text" hidden="true" class="form-control" id="id"
+							[(ngModel)]="pet.id" name="id" /> <input type="text"
+							hidden="true" class="form-control" id="owner"
+							[(ngModel)]="pet.owner" name="owner" />
+					</div>
+					<div class="form-group">
+						<label for="owner" class="col-sm-2 control-label">Owner</label>
+						<div class="col-sm-10">
+							<input id="owner_name" name="owner_name" class="form-control"
+								type="text"
+								value="{{ current_owner.firstName }} {{ current_owner.lastName }}"
+								readonly />
+						</div>
+					</div>
+					<br />
+					<div class="form-group ">
+						<label for="name" class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-10">
+							<input id="name" name="name" class="form-control" type="text"
+								[(ngModel)]="pet.name" />
+						</div>
+					</div>
+					<div class="form-group ">
+						<label for="birthDate" class="col-sm-2 control-label">Birth
+							Date</label>
+						<div class="col-sm-10">
+							<input id="birthDate" name="birthDate" class="glyphicon glyphicon-calendar datepicker-input  date form-control"
+								type="date" [(ngModel)]="pet.birthDate" 
+								data-provide="datepicker" />
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="form-group ">
+							<label for="type" class="col-sm-2 control-label">Type </label>
+							<div class="col-sm-10">
+								<div class="col-sm-2">
+									<input id="type1" name="type1" class="form-control" type="text"
+										value="{{ current_type.name }}" readonly />
+								</div>
+								<div class="col-sm-8">
+									<select id="type" name="type" class="form-control"
+										[(ngModel)]="current_type">
+										<option *ngFor="let type of pet_types"
+											[selected]="type.id == current_type.id ? true : null"
+											[ngValue]="type">{{ type.name }}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<br />
+							<button class="btn btn-warning" type="button"
+								(click)="gotoOwnerDetail(pet.owner)">< Back</button>
+							<button class="btn btn-primary" type="submit">Update Pet</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
